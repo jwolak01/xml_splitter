@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj": {}
+    "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj": {
+    "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
+        "projectUniqueName": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
         "projectName": "Splitter",
-        "projectPath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
+        "projectPath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
         "packagesPath": "C:\\Users\\pthomson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\obj\\",
+        "outputPath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pthomson\\AppData\\Roaming\\NuGet\\NuGet.Config",

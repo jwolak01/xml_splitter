@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3CEhrzXt2mevRQ6jKzB3HsGDvxuXZ1pIis23kK+vBvwyFruHd+toX7oKcLsek4crlDa9FyPXKThOipR0WTB8hg==",
+  "dgSpecHash": "UtLBCtpQcbfZWsel0AgLR0ZUBW6zQbexVawswp/ABiDlxnpc7JMBAi4mtsmv01gE2Dmj2QwsOV9fqZaI8nsZYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
+  "projectFilePath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
