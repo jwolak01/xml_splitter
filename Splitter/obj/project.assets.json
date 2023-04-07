@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
+      "projectUniqueName": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
       "projectName": "Splitter",
-      "projectPath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
+      "projectPath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
       "packagesPath": "C:\\Users\\pthomson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\obj\\",
+      "outputPath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pthomson\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,5 +64,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
