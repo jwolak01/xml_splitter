@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G61547PyTuM3KlD+nzFSgSHDJ4ZTeFERxkUzYnuabSRox6UhjBc8l/52pAaptb337YujKbgaiZG5aJjoA958WQ==",
+  "dgSpecHash": "3CEhrzXt2mevRQ6jKzB3HsGDvxuXZ1pIis23kK+vBvwyFruHd+toX7oKcLsek4crlDa9FyPXKThOipR0WTB8hg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jwolak\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
+  "projectFilePath": "C:\\Users\\pthomson\\Source\\Repos\\xml_splitter\\Splitter\\Splitter.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
