@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UtLBCtpQcbfZWsel0AgLR0ZUBW6zQbexVawswp/ABiDlxnpc7JMBAi4mtsmv01gE2Dmj2QwsOV9fqZaI8nsZYg==",
+  "dgSpecHash": "kqoo8AxWM7cblh4QEy8XImyBtsNdqbv/kG9SlOmC9ZkpUolmx7mVif8RG/aQhhTtVLgdooXMdsaTsdsc+watqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
+  "projectFilePath": "C:\\Users\\jwolak\\Desktop\\Splitter\\Splitter\\Splitter.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\pthomson\\source\\repos\\xml_splitter\\Splitter\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
