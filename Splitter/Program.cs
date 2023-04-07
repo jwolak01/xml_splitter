@@ -1,31 +1,56 @@
 ﻿using System;
 using System.Xml.Linq;
 
+DateTime today = DateTime.Today;
+
 int elementCount = 0;
 int elementsPerFile = 700;
 int index = 0;
 string saveLocation = "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Test_Output";
 
-XDocument xDoc1 = XDocument.Load(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles\AMIPRDAP17_DAILY_LP_04_07_2023_06_40_33.xml");
-xDoc1.Descendants("MetersNotRead").Remove();
-xDoc1.Descendants("MetersRead").Remove();
-xDoc1.Descendants("ScheduleExecution").Remove();
-
-
-//counts number of elements in XML file, limits the size(number of elements) of the new split file to make it so it fits in 24 files.
-foreach (var element in xDoc1.Root.Elements())
+foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles"))
 {
-    elementCount++;
-}
-elementsPerFile = (elementCount / 24) + 20;
+    //Console.WriteLine(path); // full path
+    Console.WriteLine(System.IO.Path.GetFileName(path)); // file name
+    String date = System.IO.Path.GetFileName(path).Substring(20, 20);
+    date = date.Replace('_', '/');
+    //  Console.WriteLine(str.Substring(0,10));
 
-foreach (var batch in xDoc1.Root.Elements().InSetsOf(elementsPerFile))
-{
-    var newDoc = new XDocument(
-         new XElement("AMRDEF", batch));
+    if (date.Substring(0, 10).Equals(today.ToString("MM/dd/yyyy")))
+    {
 
-    newDoc.Save($"{saveLocation}\\exportedFile_{++index}.xml");
+        XDocument newDoc = new XDocument();
+        // for each file that is the same date as today, it adds its elements to a a new XML file (newDoc)
+        foreach (var element in XDocument.Load(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles\" + System.IO.Path.GetFileName(path)).Elements())
+        {
+            newDoc.Add(element);
+        }
+
+        
+        newDoc.Descendants("MetersNotRead").Remove();
+        newDoc.Descendants("MetersRead").Remove();
+        newDoc.Descendants("ScheduleExecution").Remove();
+
+
+        //counts number of elements in XML file, limits the size(number of elements) of the new split file to make it so it fits in 24 files.
+        foreach (var element in newDoc.Root.Elements())
+        {
+            elementCount++;
+        }
+        elementsPerFile = (elementCount / 24) + 30;
+
+
+        // adds elementsPerFile files to a new file that then saves to a folder
+        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementsPerFile))
+        {
+            var finalDoc = new XDocument(
+                 new XElement("AMRDEF", batch));
+
+            finalDoc.Save($"{saveLocation}\\exportedFile_{++index}.xml");
+        }
+    }
 }
+
 
 public static class IEnumerableExtensions
 {
