@@ -33,15 +33,18 @@ foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMI
 
 
         //counts number of elements in XML file, limits the size(number of elements) of the new split file to make it so it fits in 24 files.
-        foreach (var element in newDoc.Root.Elements())
-        {
-            elementCount++;
-        }
-        elementsPerFile = (elementCount / 24) + 30;
+        //foreach (var element in newDoc.Root.Elements())
+        //{
+        //    elementCount++;
+        //}
+        //elementsPerFile = (elementCount / 24) + 30;
 
+        double scalarVariableCount = newDoc.Root.Elements().Count();
+        double numberOfElementsPerFile = Math.Round(scalarVariableCount / 24);
+        int elementAmount = Convert.ToInt32(numberOfElementsPerFile);
 
         // adds elementsPerFile files to a new file that then saves to a folder
-        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementsPerFile))
+        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementAmount))
         {
             var finalDoc = new XDocument(
                  new XElement("AMRDEF", batch));
