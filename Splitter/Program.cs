@@ -20,7 +20,7 @@ foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMI
     {
 
         XDocument newDoc = new XDocument();
-        // for each file that is the same date as today, it adds its elements to a a new XML file (newDoc)
+        // for each file that is the same date as today, it adds its elements to a new XML file (newDoc)
         foreach (var element in XDocument.Load(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles\" + System.IO.Path.GetFileName(path)).Elements())
         {
             newDoc.Add(element);
@@ -39,12 +39,9 @@ foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMI
         //}
         //elementsPerFile = (elementCount / 24) + 30;
 
-        double scalarVariableCount = newDoc.Root.Elements().Count();
-        double numberOfElementsPerFile = Math.Round(scalarVariableCount / 24);
-        int elementAmount = Convert.ToInt32(numberOfElementsPerFile);
 
-        // adds elementsPerFile files to a new file that then saves to a folder
-        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementAmount))
+        // adds {elementsPerFile} elements to a new file that then saves to a folder
+        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementsPerFile))
         {
             var finalDoc = new XDocument(
                  new XElement("AMRDEF", batch));
