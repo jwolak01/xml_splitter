@@ -26,7 +26,7 @@ foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMI
             newDoc.Add(element);
         }
 
-        
+
         newDoc.Descendants("MetersNotRead").Remove();
         newDoc.Descendants("MetersRead").Remove();
         newDoc.Descendants("ScheduleExecution").Remove();
@@ -39,6 +39,9 @@ foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMI
         //}
         //elementsPerFile = (elementCount / 24) + 30;
 
+        double scalarVariableCount = newDoc.Root.Elements().Count();
+        double numberOfElementsPerFile = Math.Round(scalarVariableCount / 24);
+        int elementAmount = Convert.ToInt32(numberOfElementsPerFile);
 
         // adds {elementsPerFile} elements to a new file that then saves to a folder
         foreach (var batch in newDoc.Root.Elements().InSetsOf(elementsPerFile))
