@@ -1,59 +1,86 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Xml;
 using System.Xml.Linq;
 
 DateTime today = DateTime.Today;
+Stopwatch stopWatch = new Stopwatch();
 
-int elementCount = 0;
-int elementsPerFile = 700;
 int index = 0;
+
 string saveLocation = "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Test_Output";
+string xmlLocation = "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\SourceFiles";
+string filePath = "";
 
-foreach (var path in Directory.GetFiles(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles"))
+stopWatch.Start();
+
+foreach (var path in Directory.GetFiles(@xmlLocation))
 {
-    //Console.WriteLine(path); // full path
-    Console.WriteLine(System.IO.Path.GetFileName(path)); // file name
-    String date = System.IO.Path.GetFileName(path).Substring(20, 20);
+    //The Following Parses and modifies the file's date
+    String date = System.IO.Path.GetFileName(path).Substring(20);
     date = date.Replace('_', '/');
-    //  Console.WriteLine(str.Substring(0,10));
+    date = date.Substring(0, 10);
 
-    if (date.Substring(0, 10).Equals(today.ToString("MM/dd/yyyy")))
+    //String currentDate = today.ToString("MM/dd/yyyy");
+
+    if (date.Equals("04/07/2023"))    // if the files date matches the current date proceed to the following
     {
+        Console.WriteLine("Found date");
+        filePath = xmlLocation + "\\" + System.IO.Path.GetFileName(path);    // instantiate the filePath to equal the xmlLocation and the file being examined
 
-        XDocument newDoc = new XDocument();
-        // for each file that is the same date as today, it adds its elements to a new XML file (newDoc)
-        foreach (var element in XDocument.Load(@"Z:\IT_Development\Projects\Active\MDMIntervalDataParcer\SourceFiles\" + System.IO.Path.GetFileName(path)).Elements())
+        // add all elements of the XML file to a newly created XDocument called 'newDoc'
+        // after adding all element trim unwanted information
+        XDocument newDoc = XDocument.Load(filePath);
+        var scheduleExecution = newDoc.Descendants("ScheduleExecution");
+
+        foreach (var meter in metersNotRead)
         {
-            newDoc.Add(element);
+            Console.WriteLine(meter);
         }
 
+        /******* JUST INCASE THE USERS WANT TO REMOVE SPECIFIED ELEMENTS *****************/
+        //newDoc.Descendants("MetersNotRead").Remove();
+        //newDoc.Descendants("MetersRead").Remove();
+        //newDoc.Descendants("ScheduleExecution").Remove();
+        /*********************************************************************************/
 
-        newDoc.Descendants("MetersNotRead").Remove();
-        newDoc.Descendants("MetersRead").Remove();
-        newDoc.Descendants("ScheduleExecution").Remove();
+        /******************  OLD CODE **********************************/
+        //foreach (var element in XDocument.Load(filePath).Elements())
+        //{
+        //    newDoc.Add(element);
+        //}
 
-
+        /********** Below is code that attempted to count all elements within the file...could possibly be used again at some point ********/
         //counts number of elements in XML file, limits the size(number of elements) of the new split file to make it so it fits in 24 files.
         //foreach (var element in newDoc.Root.Elements())
         //{
         //    elementCount++;
         //}
         //elementsPerFile = (elementCount / 24) + 30;
+        /***************************************************************/
 
         double scalarVariableCount = newDoc.Root.Elements().Count();
-        double numberOfElementsPerFile = Math.Round(scalarVariableCount / 24);
+        Console.WriteLine("Scalar Variable Count: " + scalarVariableCount);
+        double numberOfElementsPerFile = Math.Ceiling(scalarVariableCount / 24);
+        Console.WriteLine("Number of Elements per New File: " + numberOfElementsPerFile);
         int elementAmount = Convert.ToInt32(numberOfElementsPerFile);
 
         // adds {elementsPerFile} elements to a new file that then saves to a folder
-        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementsPerFile))
+        foreach (var batch in newDoc.Root.Elements().InSetsOf(elementAmount))
         {
             var finalDoc = new XDocument(
                  new XElement("AMRDEF", batch));
 
             finalDoc.Save($"{saveLocation}\\exportedFile_{++index}.xml");
         }
+
     }
 }
 
+Console.WriteLine("DONE!");
+stopWatch.Stop();
+
+Console.WriteLine($"Execution Time: {stopWatch.ElapsedMilliseconds} ms");
 
 public static class IEnumerableExtensions
 {

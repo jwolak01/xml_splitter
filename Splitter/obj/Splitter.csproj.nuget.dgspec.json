@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jmwol\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj": {}
+    "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Splitter\\Splitter\\Splitter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jmwol\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj": {
+    "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Splitter\\Splitter\\Splitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jmwol\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
+        "projectUniqueName": "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Splitter\\Splitter\\Splitter.csproj",
         "projectName": "Splitter",
-        "projectPath": "C:\\Users\\jmwol\\source\\repos\\xml_splitter\\Splitter\\Splitter.csproj",
-        "packagesPath": "C:\\Users\\jmwol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jmwol\\source\\repos\\xml_splitter\\Splitter\\obj\\",
+        "projectPath": "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Splitter\\Splitter\\Splitter.csproj",
+        "packagesPath": "C:\\Users\\jwolak\\.nuget\\packages\\",
+        "outputPath": "Z:\\IT_Development\\Projects\\Active\\MDMIntervalDataParcer\\Splitter\\Splitter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jmwol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jwolak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
